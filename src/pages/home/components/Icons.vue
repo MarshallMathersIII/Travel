@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <swiper>
+    <swiper :options="swiperOption">
     <swiper-slide v-for="(page,index) of pages" :key="index">
       <div class="icon" v-for="item of page" :key="item.id">
         <div class="icon-img">
@@ -16,56 +16,20 @@
 <script>
 export default {
   name: 'HomeIcons',
-  data: function () {
-    return ({
-      iconList: [{
-        id: '0001',
-        imgUrl: 'https://dimg02.c-ctrip.com/images/100t0l000000d61ht687A.png',
-        desc: '一日游啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊'
-      }, {
-        id: '0002',
-        imgUrl: 'https://dimg02.c-ctrip.com/images/100t0l000000d61ht687A.png',
-        desc: '2日游'
-      }, {
-        id: '0003',
-        imgUrl: 'https://dimg02.c-ctrip.com/images/100t0l000000d61ht687A.png',
-        desc: '3日游'
-      }, {
-        id: '0004',
-        imgUrl: 'https://dimg02.c-ctrip.com/images/100t0l000000d61ht687A.png',
-        desc: '4日游'
-      }, {
-        id: '0005',
-        imgUrl: 'https://dimg02.c-ctrip.com/images/100t0l000000d61ht687A.png',
-        desc: '一日游'
-      }, {
-        id: '0006',
-        imgUrl: 'https://dimg02.c-ctrip.com/images/100t0l000000d61ht687A.png',
-        desc: '一日游'
-      }, {
-        id: '0007',
-        imgUrl: 'https://dimg02.c-ctrip.com/images/100t0l000000d61ht687A.png',
-        desc: '一日游'
-      }, {
-        id: '0008',
-        imgUrl: 'https://dimg02.c-ctrip.com/images/100t0l000000d61ht687A.png',
-        desc: '一日游'
-      }, {
-        id: '0009',
-        imgUrl: 'https://dimg02.c-ctrip.com/images/100t0l000000d61ht687A.png',
-        desc: '9日游'
-      }, {
-        id: '0010',
-        imgUrl: 'https://dimg02.c-ctrip.com/images/100t0l000000d61ht687A.png',
-        desc: '10日游'
-      }]
-
-    })
+  props: {
+    list: Array
+  },
+  data () {
+    return {
+      swiperOption: {
+        autoplay: false
+      }
+    }
   },
   computed: {
     pages () {
       const pages = []
-      this.iconList.forEach((item, index) => {
+      this.list.forEach((item, index) => {
         const page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []

@@ -1,8 +1,9 @@
 <template>
 <div class="wrapper">
-<swiper :options="swiperOption" >
+<!-- v-if当数据请求完成创建，默认显示第一张 不出现逻辑代码 -->
+<swiper :options="swiperOption" v-if="showSwiper" >
     <!-- slides -->
-    <swiper-slide v-for= "item of swiperList" :key="item.id">
+    <swiper-slide v-for= "item of list" :key="item.id">
         <img class="swiper-img"  :src="item.imgUrl">
     </swiper-slide>
     <!-- Optional controls -->
@@ -13,22 +14,23 @@
 
 <script>export default {
   name: 'HomeSwiper',
+  props: {
+    list: Array
+  },
   data () {
     return {
       swiperOption: {
         pagination: '.swiper-pagination',
         loop: true
-      },
-      swiperList: [{
-        id: '0001',
-        imgUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/17e2352b857f66e9d2948e98dc483bc2.jpg_750x200_2857d0a3.jpg'
-      }, {
-        id: '0002',
-        imgUrl: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20193/d7bbc21db442366a882e04ddc984669a.jpg_750x200_85e640d9.jpg'
       }
-      ]
+    }
+  },
+  computed: {
+    showSwiper () {
+      return this.list.length
     }
   }
+
 }
 </script>
 
@@ -39,7 +41,7 @@
     overflow : hidden
     width : 100%
     height : 0
-    padding-bottom 26.00%
+    padding-bottom 32.00%
     background : #eee
     .swiper-img
         width : 100%
