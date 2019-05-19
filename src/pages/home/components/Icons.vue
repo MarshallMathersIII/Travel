@@ -78,10 +78,12 @@ export default {
 }
 </script>
 <style lang="stylus" scoped>
-@import '~styles/varibles.styl';
+@import '~styles/varibles.styl'
+@import '~styles/mixins.styl'
 .icons >>> .swiper-container
     height: 0
     padding-bottom: 50%
+    margin-top .1rem
   .icon
     overflow hidden
     position  relative

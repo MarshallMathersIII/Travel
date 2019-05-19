@@ -18,6 +18,7 @@ export default {
 </script>
   <style lang="stylus" scoped>
   @import '~styles/varibles.styl';
+  @import '~styles/mixins.styl'
   .header
     display : flex
     line-height: .86rem
