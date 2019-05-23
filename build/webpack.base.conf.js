@@ -38,6 +38,7 @@ module.exports = {
       '@': resolve('src'),
       // 文件夹路径别名配置
       'styles': resolve('src/assets/styles'),
+      'common': resolve('src/common'),
     }
   },
   module: {
