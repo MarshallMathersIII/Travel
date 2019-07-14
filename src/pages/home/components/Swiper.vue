@@ -35,8 +35,10 @@
 </script>
 
 <style lang="stylus" scoped>
+// 样式穿透swiper-pagination-bullet-active属于swiper组件内容，因scoped限制，需要穿透设置
 .wrapper >>> .swiper-pagination-bullet-active
     background: #fff
+// 宽高比设置
 .wrapper
     overflow : hidden
     width : 100%
